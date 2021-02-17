@@ -243,6 +243,6 @@ class LmsModuleSystem(ModuleSystem):  # pylint: disable=abstract-method
         # (see https://openedx.atlassian.net/browse/TE-811)
         return [
             aside_type
-            for aside_type in super(LmsModuleSystem, self).applicable_aside_types(block)
+            for aside_type in super().applicable_aside_types(block)
             if aside_type != 'acid_aside'
         ]
