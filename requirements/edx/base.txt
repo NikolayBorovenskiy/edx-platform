@@ -99,7 +99,7 @@ edx-django-release-util==1.0.0  # via -r requirements/edx/base.in
 edx-django-sites-extensions==3.0.0  # via -r requirements/edx/base.in
 edx-django-utils==3.13.0  # via -r requirements/edx/base.in, django-config-models, edx-drf-extensions, edx-enterprise, edx-rest-api-client, edx-toggles, edx-when, ora2, super-csv
 edx-drf-extensions==6.5.0  # via -r requirements/edx/base.in, edx-completion, edx-enterprise, edx-organizations, edx-proctoring, edx-rbac, edx-when, edxval
-git+https://github.com/edx/edx-enterprise@40bd852f2ed3d6c9c741c391d123b04e174cca00#egg=edx-enterprise==3.17.29    # via -c requirements/edx/../constraints.txt, -r requirements/edx/base.in
+git+https://github.com/edx/edx-enterprise@40bd852f2ed3d6c9c741c391d123b04e174cca00#egg=edx-enterprise==3.17.31    # via -c requirements/edx/../constraints.txt, -r requirements/edx/base.in
 edx-event-routing-backends==4.0.1  # via -r requirements/edx/base.in
 edx-i18n-tools==0.5.3     # via ora2
 edx-milestones==0.3.0     # via -r requirements/edx/base.in
@@ -110,7 +110,7 @@ edx-proctoring==3.4.0     # via -r requirements/edx/base.in, edx-proctoring-proc
 edx-rbac==1.4.1           # via edx-enterprise
 edx-rest-api-client==5.3.0  # via -r requirements/edx/base.in, edx-enterprise, edx-proctoring
 edx-search==3.0.0         # via -r requirements/edx/base.in
-edx-sga==0.15.0           # via -r requirements/edx/base.in
+edx-sga==0.16.0           # via -r requirements/edx/base.in
 edx-submissions==3.2.4    # via -r requirements/edx/base.in, ora2
 edx-tincan-py35==1.0.0    # via edx-enterprise
 edx-toggles==4.0.0        # via -r requirements/edx/base.in, edx-completion, edx-event-routing-backends, edxval, ora2
@@ -145,7 +145,7 @@ laboratory==1.0.2         # via -r requirements/edx/base.in
 lazy==1.4                 # via -r requirements/edx/paver.txt, acid-xblock, lti-consumer-xblock, ora2
 libsass==0.10.0           # via -r requirements/edx/paver.txt, ora2
 loremipsum==1.0.5         # via ora2
-lti-consumer-xblock==2.5.2  # via -r requirements/edx/base.in
+lti-consumer-xblock==2.6.0  # via -r requirements/edx/base.in
 lxml==4.5.0               # via -c requirements/edx/../constraints.txt, -r requirements/edx/../edx-sandbox/shared.txt, capa, edxval, lti-consumer-xblock, ora2, safe-lxml, xblock, xmlsec
 mailsnake==1.6.4          # via -r requirements/edx/base.in
 mako==1.1.4               # via -r requirements/edx/base.in, acid-xblock, lti-consumer-xblock, xblock-google-drive, xblock-utils
