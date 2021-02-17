@@ -11,6 +11,8 @@ import traceback
 from collections import defaultdict
 from contextlib import contextmanager
 from uuid import uuid4
+
+import pymongo.message
 import pytz
 import six
 from factory import Factory, Sequence, lazy_attribute, lazy_attribute_sequence
