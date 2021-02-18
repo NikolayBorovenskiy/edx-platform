@@ -140,7 +140,12 @@ class CompletionServiceTestCase(CompletionWaffleTestMixin, SharedModuleStoreTest
     def test_completion_service(self):
         # Only the completions for the user and course specified for the CompletionService
         # are returned.  Values are returned for all keys provided.
-        assert self.completion_service.get_completions(self.block_keys) == {self.block_keys[0]: 1.0, self.block_keys[1]: 0.8, self.block_keys[2]: 0.6, self.block_keys[3]: 0.0, self.block_keys[4]: 0.0}
+        assert self.completion_service.get_completions(self.block_keys) == \
+               {
+                   self.block_keys[0]: 1.0, self.block_keys[1]: 0.8,
+                   self.block_keys[2]: 0.6, self.block_keys[3]: 0.0,
+                   self.block_keys[4]: 0.0
+               }
 
     @ddt.data(True, False)
     def test_enabled_honors_waffle_switch(self, enabled):

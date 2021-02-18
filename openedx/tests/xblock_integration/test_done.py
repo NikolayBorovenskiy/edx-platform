@@ -54,8 +54,8 @@ class TestDone(XBlockTestCase):
         desired.
         """
         resp = self.ajax('toggle_button', block, data)
-        assert resp.status_code == 200
-        assert resp.data == {'state': desired_state}
+        assert resp.status_code == 200  # pylint: disable=W0143
+        assert resp.data == {'state': desired_state}  # pylint: disable=W0143
 
     # pylint: disable=unused-argument
     def check_response(self, block_urlname, rendering):
@@ -65,7 +65,7 @@ class TestDone(XBlockTestCase):
         In the future, visual diff test the response.
         """
         response = self.render_block(block_urlname)
-        assert response.status_code == 200
+        assert response.status_code == 200  # pylint: disable=W0143
         # To do: Below method needs to be implemented
         #self.assertXBlockScreenshot(block_urlname, rendering)
 

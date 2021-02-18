@@ -1,12 +1,10 @@
-import pytest
 """
 Test signal handlers for completion.
 """
-
-
 from datetime import datetime
 
 import ddt
+import pytest
 import six
 from completion import handlers
 from completion.models import BlockCompletion

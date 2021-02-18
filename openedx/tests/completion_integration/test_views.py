@@ -84,7 +84,11 @@ class CompletionBatchTestCase(CompletionWaffleTestMixin, ModuleStoreTestCase):
         """
         with override_waffle_switch(ENABLE_COMPLETION_TRACKING_SWITCH, False):
             response = self.client.post(self.url, {'username': self.ENROLLED_USERNAME}, format='json')
-        assert response.data == {'detail': 'BlockCompletion.objects.submit_batch_completion should not be called when the feature is disabled.'}
+        assert response.data == \
+               {
+                   'detail': 'BlockCompletion.objects.submit_batch_completion'
+                             ' should not be called when the feature is disabled.'
+               }
         assert response.status_code == 400
 
     @ddt.data(

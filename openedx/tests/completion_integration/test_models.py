@@ -1,9 +1,7 @@
-import pytest
 """
 Test models, managers, and validators.
 """
-
-
+import pytest
 import six
 from completion import models
 from completion.test_utils import CompletionWaffleTestMixin, submit_completions_for_testing
@@ -14,8 +12,8 @@ from edx_toggles.toggles.testutils import override_waffle_switch
 from opaque_keys.edx.keys import CourseKey, UsageKey
 from six.moves import range, zip
 
-from openedx.core.djangolib.testing.utils import skip_unless_lms
 from common.djangoapps.student.tests.factories import CourseEnrollmentFactory, UserFactory
+from openedx.core.djangolib.testing.utils import skip_unless_lms
 
 SELECT = 1
 UPDATE = 1
