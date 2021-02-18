@@ -728,6 +728,24 @@ class PasswordResetTokenValidateViewTest(UserAPITestCase):
         self.user = User.objects.get(pk=self.user.pk)
         self.assertFalse(self.user.is_active)
 
+    @override_settings(
+        CACHES={
+            'default': {
+                'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+                'LOCATION': 'reset_password',
+            }
+        }
+    )
+    def test_reset_password_token_api_throttle(self):
+        """
+        Test that the reset password token validation endpoint is throttling
+        """
+        for _ in range(int(settings.RESET_PASSWORD_TOKEN_VALIDATE_API_RATELIMIT.split('/')[0])):
+            response = self.client.post(self.url, data={'token': self.token})
+            self.assertNotEqual(response.status_code, 429)
+        response = self.client.post(self.url, data={'token': self.token})
+        self.assertEqual(response.status_code, 429)
+
 
 @ddt.ddt
 @unittest.skipUnless(
@@ -846,3 +864,26 @@ class ResetPasswordAPITests(EventTestMixin, CacheIsolationTestCase):
         self.assertEqual(sent_message.from_email, from_email)
         self.assertEqual(len(sent_message.to), 1)
         self.assertIn(updated_user.email, sent_message.to[0])
+
+    @override_settings(
+        CACHES={
+            'default': {
+                'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+                'LOCATION': 'reset_password',
+            }
+        }
+    )
+    def test_password_reset_api_throttle(self):
+        """
+        Test that the reset password end point is throttling
+        """
+        path = reverse(
+                "logistration_password_reset",
+                kwargs={"uidb36": self.uidb36, "token": self.token}
+        )
+        request_param = {'new_password1': 'new_password1', 'new_password2': 'new_password1'}
+        for _ in range(int(settings.RESET_PASSWORD_API_RATELIMIT.split('/')[0])):
+            response = self.client.post(path, request_param)
+            self.assertNotEqual(response.status_code, 429)
+        response = self.client.post(path, request_param)
+        self.assertEqual(response.status_code, 429)
